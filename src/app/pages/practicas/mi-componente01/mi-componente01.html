@@ -1,0 +1,30 @@
+<div class="p-grid p-fluid">
+  <div class="p-col-12">
+    <h2>{{titulo}}</h2>
+    <p>Hola {{nombre}}</p>
+
+    <p-button
+      [label]="'Saludar'"
+      [disabled]="deshabilitar"
+      (onClick)="clickSaludar()">
+    </p-button>
+
+    <br /><br />
+
+    <input
+      pInputText
+      type="text"
+      placeholder="Escribe algo..."
+      (input)="eventoInput($event)">
+    <p>{{inputMessage}}</p>
+
+    <label for="nombreInput">Ingrese un nombre</label>
+    <input
+      pInputText
+      id="nombreInput"
+      type="text"
+      placeholder="Ingrese su nombre"
+      [(ngModel)]="inputNombre">
+    <p>{{inputNombre}}</p>
+  </div>
+</div>

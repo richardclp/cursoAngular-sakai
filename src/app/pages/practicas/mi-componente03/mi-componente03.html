@@ -1,0 +1,103 @@
+<div style="background: #ccffdb; padding: 1rem;">
+    <h2>Mi Componente 03</h2>
+
+    <p-card header="Directiva de Atributo - NgClass" styleClass="mb-3">
+        <div [ngClass]="{
+      active: isActive,
+      error: hasError,
+      disabled: status === 'COMPLETED',
+    }" class="p-3 border-round">
+            Este div cambia de clases dinamicamente.
+        </div>
+
+        <div class="p-mt-2">
+            <button pButton type="button" label="Toggle Active" (click)="toggleActive()"
+                class="p-button-sm p-mr-2"></button> |
+            <button pButton type="button" label="Toggle Error" (click)="toggleError()"
+                class="p-button-sm p-mr-2"></button> |
+            <button pButton type="button" label="Change Status" (click)="toggleStatus()" class="p-button-sm"></button>
+        </div>
+    </p-card>
+
+    <p-card header="Directiva de Atributo - NgStyle" styleClass="mb-3">
+        <div [ngStyle]="{
+          color: textColor,
+          'font-size.px': fontSize,
+          'background-color': bgColor,
+          'padding.px': paddingSize,
+      }" class="p-3 border-round">
+            Este div cambia de estilos dinamicamente.
+        </div>
+
+        <div class="p-mt-2">
+            <button pButton type="button" label="Blue Text" (click)="changeColor('blue')"
+                class="p-button-sm p-button-info p-mr-2"></button> |
+            <button pButton type="button" label="Red Text" (click)="changeColor('red')"
+                class="p-button-sm p-button-danger p-mr-2"></button> |
+            <button pButton type="button" label="Green Text" (click)="changeColor('green')"
+                class="p-button-sm p-button-success p-mr-2"></button> |
+            <button pButton type="button" label="Increase Font" (click)="increaseSize()"
+                class="p-button-sm p-button-warning"></button>
+        </div>
+    </p-card>
+
+    <p-card header="Control Flow - @if" styleClass="mb-3">
+        <button pButton type="button" label="Change Status" (click)="toggleStatus()"
+            class="p-button-sm p-mb-2"></button>
+
+        @if(status === 'COMPLETED') {
+        <div class="p-3 border-round bg-green-100">
+            <app-saludo />
+        </div>
+        }
+    </p-card>
+
+    <p-card header="Control Flow - @if - else-if" styleClass="mb-3">
+        <p><strong>Nota:</strong> {{ score }}</p>
+
+        @if( score >= 90){
+        <p-tag value="Excelente" severity="success" class="p-mr-2"></p-tag>
+        } @else if (score >= 80 && score < 90) { <p-tag value="Bueno" severity="info" class="p-mr-2"></p-tag>
+            } @else if (score >= 70 && score < 80) { <p-tag value="Regular" severity="warning" class="p-mr-2"></p-tag>
+                } @else {
+                <p-tag value="Malo" severity="danger" class="p-mr-2"></p-tag>
+                }
+    </p-card>
+
+    <p-card header="Control Flow - @switch" styleClass="mb-3">
+        @switch (status) {
+        @case ('COMPLETED') {
+        <p-tag value="Completado con éxito" severity="success"></p-tag>
+        } @case ('PENDING') {
+        <p-tag value="Pendiente" severity="warning"></p-tag>
+        } @default {
+        <p-tag value="Estado no reconocido" severity="danger"></p-tag>
+        }
+        }
+    </p-card>
+
+    <p-card header="Control Flow - @for" styleClass="mb-3">
+        <p-table [value]="tareaArray" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ESTADO</th>
+                    <th>PRIORIDAD</th>
+                    <th>VENCIMIENTO</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-tarea>
+                <tr>
+                    <td>{{ tarea.id }}</td>
+                    <td>{{ tarea.nombre }}</td>
+                    <td>
+                        <p-tag [value]="tarea.estado" [severity]="getSeverity(tarea.estado)"></p-tag>
+                    </td>
+                    <td>{{ tarea.prioridad }}</td>
+                    <td>{{ tarea.fechaVencimiento }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-card>
+</div>

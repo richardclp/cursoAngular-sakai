@@ -1,0 +1,96 @@
+<div style="background: #d5f5d4; padding: 1rem;">
+    <h2>Mi Componente 04</h2>
+
+    <p-card header="Pipes de Angular" styleClass="mb-4">
+        <p-table [value]="pipeExamples" [tableStyle]="{'min-width': '60rem'}" styleClass="p-datatable-sm">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>PIPE</th>
+                    <th>VALUE</th>
+                    <th>RESULT</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-example>
+                <tr>
+                    <td><strong>{{example.pipe}}</strong></td>
+                    <td><p-tag [value]="example.value" severity="info"></p-tag></td>
+                    <td><p-tag [value]="example.result" severity="success"></p-tag></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-card>
+
+    <p-card header="Detalles de Pipes" styleClass="mb-4">
+        <div class="p-grid">
+            <!-- UpperCase & LowerCase -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="UpperCase/LowerCase" toggleable>
+                    <p><strong>Original:</strong> {{ nombreCompleto }}</p>
+                    <p><strong>UpperCase:</strong> {{ nombreCompleto | uppercase }}</p>
+                    <p><strong>LowerCase:</strong> {{ nombreCompleto | lowercase }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Slice -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Slice" toggleable>
+                    <p><strong>Original:</strong> {{ nombreCompleto }}</p>
+                    <p><strong>Slice(8):</strong> {{ nombreCompleto | slice : 8 }}</p>
+                    <p><strong>Slice(8:14):</strong> {{ nombreCompleto | slice : 8 : 14 }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Number -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Number" toggleable>
+                    <p><strong>Original:</strong> {{ sueldo }}</p>
+                    <p><strong>Number:</strong> {{ sueldo | number }}</p>
+                    <p><strong>Custom:</strong> {{ sueldo | number : '1.2-5' }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Currency & Percent -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Currency/Percent" toggleable>
+                    <p><strong>Currency:</strong> {{ sueldo | currency : 'BOB' }}</p>
+                    <p><strong>Percent:</strong> {{ avancePorcentaje | percent }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Date -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Date" toggleable>
+                    <p><strong>Default:</strong> {{ myDate | date }}</p>
+                    <p><strong>FullDate:</strong> {{ myDate | date: 'fullDate' }}</p>
+                    <p><strong>ShortDate:</strong> {{ myDate | date: 'shortDate' }}</p>
+                    <p><strong>Custom:</strong> {{ myDate | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+                </p-panel>
+            </div>
+
+            <!-- JSON & Async -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="JSON/Async" toggleable>
+                    <p><strong>JSON:</strong></p>
+                    <pre>{{ domicilio | json }}</pre>
+                    <p><strong>Async:</strong> {{ miPromesa | async }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Custom Pipe -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Custom Age Pipe" toggleable>
+                    <p><strong>Fecha Nac:</strong> {{ myBirDate }}</p>
+                    <p><strong>Edad:</strong> {{ myBirDate | age }}</p>
+                </p-panel>
+            </div>
+
+            <!-- Pipe Chaining -->
+            <div class="p-col-12 p-md-6 p-lg-4">
+                <p-panel header="Pipe Chaining" toggleable>
+                    <p><strong>Date + UpperCase:</strong></p>
+                    <p>{{ myDate | date: 'fullDate' | uppercase }}</p>
+                </p-panel>
+            </div>
+        </div>
+    </p-card>
+</div>

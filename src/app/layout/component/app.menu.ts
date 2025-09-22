@@ -24,6 +24,7 @@ export class AppMenu {
                 label: 'Home',
                 items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
             },
+            /*
             {
                 label: 'UI Components',
                 items: [
@@ -43,6 +44,28 @@ export class AppMenu {
                     { label: 'Timeline', icon: 'pi pi-fw pi-calendar', routerLink: ['/uikit/timeline'] },
                     { label: 'Misc', icon: 'pi pi-fw pi-circle', routerLink: ['/uikit/misc'] }
                 ]
+            },
+            */
+            {
+                label: 'Practicas',
+                items: [
+                    { label: 'Saludo', icon: 'pi pi-fw pi-id-card', routerLink: ['/practicas/saludo'] },
+                    { label: 'micomponente01', icon: 'pi pi-fw pi-id-card', routerLink: ['/practicas/micomponente01'] },
+                    { label: 'micomponente02', icon: 'pi pi-fw pi-check-square', routerLink: ['/practicas/micomponente02'] },
+                    { label: 'micomponente03', icon: 'pi pi-fw pi-mobile', class: 'rotated-icon', routerLink: ['/practicas/micomponente03'] },
+                    { label: 'micomponente04', icon: 'pi pi-fw pi-table', routerLink: ['/practicas/micomponente04'] },
+                    { label: 'micomponente05', icon: 'pi pi-fw pi-list', routerLink: ['/practicas/micomponente05'] },
+                    { label: 'micomponente06', icon: 'pi pi-fw pi-share-alt', routerLink: ['/practicas/micomponente06'] },
+                    { label: 'micomponente07', icon: 'pi pi-fw pi-tablet', routerLink: ['/practicas/micomponente07'] },
+                    { label: 'micomponente08', icon: 'pi pi-fw pi-clone', routerLink: ['/practicas/micomponente08'] },
+                    { label: 'micomponente09', icon: 'pi pi-fw pi-image', routerLink: ['/practicas/micomponente09/LOPAC/75'] },
+                    { label: 'micomponente10', icon: 'pi pi-fw pi-bars', routerLink: ['/practicas/micomponente10'] },
+                    { label: 'micomponente11', icon: 'pi pi-fw pi-comment', routerLink: ['/practicas/micomponente11'] },
+                ]
+
+            }
+                /*
+
             },
             {
                 label: 'Pages',
@@ -152,6 +175,7 @@ export class AppMenu {
                     }
                 ]
             }
+            */
         ];
     }
 }

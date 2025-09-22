@@ -1,0 +1,99 @@
+<div style="background: #eff176; padding: 1rem;">
+  <h2>Mi Componente 08</h2>
+
+  <p-card header="Navegación con Router" styleClass="mb-4">
+    <div class="p-grid p-fluid">
+      <div class="p-col-12 p-md-6">
+        <p-panel header="Navegación Programática" toggleable>
+          <div class="flex flex-column gap-2">
+            <button pButton
+                    type="button"
+                    label="Ir a Componente 01 (Navigate)"
+                    icon="pi pi-arrow-right"
+                    (click)="navigateToComponente01()"
+                    class="p-button-info"></button>
+
+            <button pButton
+                    type="button"
+                    label="Ir a Componente 02 (NavigateByUrl)"
+                    icon="pi pi-arrow-right"
+                    (click)="navigateToComponente02()"
+                    class="p-button-info"></button>
+
+            <button pButton
+                    type="button"
+                    label="Ir a Componente 09 (Path + Query Params)"
+                    icon="pi pi-external-link"
+                    (click)="redirectToComponente09()"
+                    class="p-button-warning"></button>
+
+            <button pButton
+                    type="button"
+                    label="Ir a Componente 10 (Query Params)"
+                    icon="pi pi-external-link"
+                    (click)="redirectToComponente10()"
+                    class="p-button-warning"></button>
+          </div>
+        </p-panel>
+      </div>
+
+      <div class="p-col-12 p-md-6">
+        <p-panel header="Navegación con RouterLink" toggleable>
+          <div class="flex flex-column gap-2">
+            <p-button
+              label="Ir a Componente 09 (PathParams)"
+              icon="pi pi-link"
+              [routerLink]="['/dashboard/practicas/micomponente09', 'LoPac', 10]"
+              styleClass="p-button-help"></p-button>
+
+            <p-button
+              label="Ir a Componente 10 (QueryParams)"
+              icon="pi pi-link"
+              [routerLink]="['/dashboard/practicas/micomponente10']"
+              [queryParams]="{param_nombre:'yooo', param_edad:15}"
+              styleClass="p-button-success"></p-button>
+          </div>
+        </p-panel>
+      </div>
+    </div>
+  </p-card>
+
+  <p-card header="Información de Navegación" styleClass="mb-4">
+    <div class="p-grid">
+      <div class="p-col-12 p-md-6">
+        <p><strong>Métodos disponibles:</strong></p>
+        <ul class="list-none p-0">
+          <li class="flex align-items-center gap-2 mb-2">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>navigate() - Navegación programática</span>
+          </li>
+          <li class="flex align-items-center gap-2 mb-2">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>navigateByUrl() - Navegación por URL</span>
+          </li>
+          <li class="flex align-items-center gap-2 mb-2">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>Path Parameters - Parámetros en ruta</span>
+          </li>
+          <li class="flex align-items-center gap-2">
+            <i class="pi pi-check-circle text-green-500"></i>
+            <span>Query Parameters - Parámetros en query</span>
+          </li>
+        </ul>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <p><strong>Ejemplo de parámetros:</strong></p>
+        <div class="border-round surface-border border-1 p-3">
+          <p class="text-sm mb-1"><strong>Componente 09:</strong></p>
+          <p class="text-sm mb-2">Path: /micomponente09/<span class="text-primary">Javier</span>/<span class="text-primary">45</span></p>
+          <p class="text-sm">Query: ?nombre=<span class="text-primary">LoPac</span>&edad=<span class="text-primary">44</span></p>
+
+          <p-divider></p-divider>
+
+          <p class="text-sm mb-1"><strong>Componente 10:</strong></p>
+          <p class="text-sm">Query: ?param_nombre=<span class="text-primary">LoPac</span>&param_edad=<span class="text-primary">44</span></p>
+        </div>
+      </div>
+    </div>
+  </p-card>
+</div>
